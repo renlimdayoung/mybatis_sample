@@ -12,7 +12,7 @@
 			</if>
 		</where>
 	</sql>
-	
+	<!--  -->
 	<select id="selectStudentByNo" parameterType="Student" resultType="Student">
 		<include refid="selectSql"/>
 		<include refid="whereSql"/>
