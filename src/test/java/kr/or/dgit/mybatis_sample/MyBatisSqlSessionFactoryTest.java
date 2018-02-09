@@ -9,6 +9,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.or.dgit.mybatis_sample.util.MybatisSqlSessionFactory;
+
 public class MyBatisSqlSessionFactoryTest {
 	private static SqlSessionFactory factory;
 
