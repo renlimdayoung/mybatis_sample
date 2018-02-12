@@ -61,5 +61,13 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 			return res;
 		}
 	}
+	
+	public List<Student> selectStudentByAllForResultMap(){
+		log.debug("selectStudentByAllForResultMap()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectStudentByAllForResultMap();
+		}
+	}
 
 }

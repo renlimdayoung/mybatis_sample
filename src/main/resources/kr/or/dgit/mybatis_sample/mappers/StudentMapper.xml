@@ -51,4 +51,20 @@
 	<delete id="deleteStudent" parameterType="int">
 		<include refid="deleteSql"/>
 	</delete>
+	<sql id="selectSql2">
+		SELECT stud_id, name, email, phone FROM students
+	</sql>
+	
+	<!-- resultMap을 이용 -->
+	<resultMap type="Student" id="Studentresult">
+		<id property="studId" column="stud_id"></id>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="dob" column="dob"/>
+	</resultMap>
+	
+	<select id="seletStudentByAllForResultMap" resultMap="StudentResult">
+		<include refid="selectStudentByAllWithAPIForResultMap"></include>
+	</select>
 </mapper>
