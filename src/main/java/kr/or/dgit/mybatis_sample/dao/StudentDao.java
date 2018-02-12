@@ -5,10 +5,16 @@ import java.util.List;
 import kr.or.dgit.mybatis_sample.dto.Student;
 
 public interface StudentDao {
-	//select
+	// select
 	Student selectStudentByNo(Student student);
 	List<Student> selectStudentByAll();
-	
-	//insert
+
+	// insert
 	int insertStudent(Student student);
+
+	// update
+	int updateStudent(Student studeent);
+
+	// delete
+	int deleteStudent(int studId);
 }
