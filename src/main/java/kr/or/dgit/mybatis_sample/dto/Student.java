@@ -10,6 +10,7 @@ public class Student {
 	private String email;
 	private PhoneNumber phone;
 	private Date dob;
+	private Address address;
 
 	
 	public Student() {
@@ -20,12 +21,25 @@ public class Student {
 		this.studId = studId;
 	}
 
+	
+
 	public Student(int studId, String name, String email, PhoneNumber phone, Date dob) {
+		super();
 		this.studId = studId;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.dob = dob;
+	}
+
+	public Student(int studId, String name, String email, PhoneNumber phone, Date dob, Address address) {
+		super();
+		this.studId = studId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.dob = dob;
+		this.address = address;
 	}
 
 	public int getStudId() {
@@ -67,10 +81,22 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	@Override
 	public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s]", studId, name, email, dob, phone);
+		return String.format("Student [%s, %s, %s, %s, %s, %s]", studId, name,
+				email, phone, dob, address);
 	}
+
+	
 
 }

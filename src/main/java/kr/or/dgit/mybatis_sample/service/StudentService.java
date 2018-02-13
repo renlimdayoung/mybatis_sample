@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_sample.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -67,6 +68,38 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
 			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
 			return studentDao.selectStudentByAllForResultMap();
+		}
+	}
+	
+	public Student selectStudentByNoForResultMapExtends(Student student){
+		log.debug("selectStudentByNoForResultMapExtends()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectStudentByNoForResultMapExtends(student);
+		}
+	}
+
+	public Student selectStudentByNoAssociation(Student searchStd) {
+		log.debug("selectStudentByNoAssociation()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectStudentByNoForResultMapExtends(searchStd);
+		}
+	}
+
+	public List<Map<String, Object>> CourseResult() {
+		log.debug("selectStudentByAllForHashMap()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectStudentByAllForHashMap();
+		}
+	}
+	
+	public List<Map<String, Object>> selectStudentByAllForHashMap() {
+		log.debug("selectStudentByAllForHashMap()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectStudentByAllForHashMap();
 		}
 	}
 

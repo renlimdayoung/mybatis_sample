@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -90,6 +92,36 @@ private static StudentService service;
 		List<Student> lists2 = service.findStudentByAll();
 		
 		Assert.assertSame(lists.size(), lists2.size());
+	}
+	
+	@Test
+	public void test7SelectStudentByAllForHashMap() {
+		List<Map<String, Object>> listMaps = service.selectStudentByAllForHashMap();
+		List<Student> lists2 = service.findStudentByAll();
+		
+		Assert.assertSame(listMaps.size(), lists2.size());
+		
+		for(Map<String, Object> map : listMaps) {
+			for(Entry<String, Object> e:  map.entrySet()) {
+				System.out.printf("key %s => value %s %n", e.getKey(), e.getValue());
+			}
+		}
+	}
+	
+	@Test
+	public void test8SelectStudentByNoForResultMapExtends() {
+		Student searchStd = new Student(1);
+		Student student = service.selectStudentByNoForResultMapExtends(searchStd);
+		Assert.assertNotNull(student);
+		System.out.println(student);
+	}
+	
+	@Test
+	public void test9SelectStudentByNoAssociation() {
+		Student searchStd = new Student(1);
+		Student student = service.selectStudentByNoAssociation(searchStd);
+		Assert.assertNotNull(student);
+		System.out.println(student);
 	}
 
 }
