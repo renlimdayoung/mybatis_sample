@@ -3,7 +3,7 @@
 <mapper namespace="kr.or.dgit.mybatis_sample.dao.CourseDao">
 
 	<resultMap id="CourseResult" type="Course">
-		<id property="CourseResult" column="Course"></id>
+		<id property="courseId" column="course_id"></id>
 		<result property="name" column="name"/>
 		<result property="description" column="description"/>
 		<result property="startDate" column="start_date"/>

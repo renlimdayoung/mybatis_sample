@@ -8,9 +8,10 @@ import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
 
 import kr.or.dgit.mybatis_sample.dao.StudentDao;
+import kr.or.dgit.mybatis_sample.dao.TutorDao;
 import kr.or.dgit.mybatis_sample.dto.Student;
+import kr.or.dgit.mybatis_sample.dto.Tutor;
 import kr.or.dgit.mybatis_sample.util.MybatisSqlSessionFactory;
-import kr.or.dgit.mybatis_sample.service.StudentService;
 
 
 public class StudentService {
@@ -102,5 +103,5 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 			return studentDao.selectStudentByAllForHashMap();
 		}
 	}
-
+	
 }
