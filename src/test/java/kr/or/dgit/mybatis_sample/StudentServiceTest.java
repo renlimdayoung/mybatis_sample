@@ -1,16 +1,13 @@
 package kr.or.dgit.mybatis_sample;
 
-import static org.junit.Assert.*;
-
-import java.nio.channels.AsynchronousServerSocketChannel;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -18,9 +15,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_sample.dao.Gender;
+import kr.or.dgit.mybatis_sample.dto.PhoneNumber;
 import kr.or.dgit.mybatis_sample.dto.Student;
 import kr.or.dgit.mybatis_sample.service.StudentService;
-import kr.or.dgit.mybatis_sample.dto.PhoneNumber;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StudentServiceTest {
@@ -123,5 +121,42 @@ private static StudentService service;
 		Assert.assertNotNull(student);
 		System.out.println(student);
 	}
+	
+	@Test
+	public void testFinsertEnumStudent() {
+		Calendar newDate = GregorianCalendar.getInstance();
+        newDate.set(1990, 2, 28);
 
+        Student student = new Student(3, "홍길동3", "lee@test.co.kr", new PhoneNumber("010-1234-1234"), newDate.getTime());
+        student.setGender(Gender.FEMALE);
+        int res = service.insertEnumStudent(student);
+        Assert.assertEquals(1, res);
+        
+        test5DeleteStudent();
+	}
+	
+	@Test
+	public void test10selectAllStudentByParam() {
+		Student student = StudentService.selectAllStudentByParam("Timothy", "timothy@gmail.com");
+		Assert.assertNotNull(student);
+	}
+
+	@Test
+	public void test11selectAllStudentByStudent() {
+		Student std = new Student();
+		std.setName("Timothy");
+		std.setEmail("timothy@gmail.com");
+		Student student = StudentService.selectAllStudentByStudent(std);
+		Assert.assertNotNull(student);
+	}
+	
+	@Test
+	public void test12selectAllStudentByMap() {
+		Map<String,String> maps =  new HashMap<>();
+		maps.put("name", "Timothy");
+		maps.put("email", "timothy@gmail.com");
+		Student student = StudentService.selectAllStudentByMap(maps);
+		Assert.assertNotNull(student);
+	}
+	
 }

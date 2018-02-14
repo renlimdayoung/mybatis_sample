@@ -24,4 +24,12 @@ public interface StudentDao {
 	//delete
 	int deleteStudent(int studId);
 	
+	//enum 타입 다루기
+	int insertEnumStudent(Student student);
+	int insertEnumStudentWithAPI(Student student);
+	
+	//여러개의 입력 파라미터 전달
+	Student selectAllStudentByParam(String name, String email);
+	Student selectAllStudentByStudent(Student student);
+	Student selectAllStudentByMap(Map<String, String> map);
 }

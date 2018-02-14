@@ -104,4 +104,47 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 		}
 	}
 	
+	public int insertEnumStudent(Student student) {
+		log.debug("insertEnumStudent()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			int res = studentDao.insertEnumStudent(student);
+			sqlSession.commit();
+			return res;
+		}
+	}
+	
+	public int insertEnumStudentWithAPI(Student student) {
+		log.debug("insertEnumStudentWithAPI()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			int res = studentDao.insertEnumStudent(student);
+			sqlSession.commit();
+			return res;
+		}
+	}
+	
+	public static Student selectAllStudentByParam(String name, String email) {
+		log.debug("selectAllStudentByParam()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectAllStudentByParam(name, email);
+		}
+	}
+	
+	public static Student  selectAllStudentByStudent(Student student) {
+		log.debug("selectAllStudentByStudent()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao. selectAllStudentByStudent(student);
+		}
+	}
+	
+	public static Student  selectAllStudentByMap(Map<String, String> map) {
+		log.debug("selectAllStudentByMap()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao. selectAllStudentByMap(map);
+		}
+	}
 }

@@ -6,13 +6,13 @@
 		<result property="name" column="tutor_name" />
 		<result property="email" column="email" />
 		<collection property="courses"
-			resultMap="kr.or.dgit.mybatis_sample.dao.CourseDao.CourseResult"/>
+			resultMap="kr.or.dgit.mybatis_sample.dao.CourseDao.CourseResult" />
 	</resultMap>
 
 	<!-- select -->
 	<sql id="selectSql">
-		select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name,
-		description, start_date, end_date from tutors t
+		select t.tutor_id, t.name as tutor_name, email,	c.course_id, c.name, description, start_date, end_date 
+		from tutors t
 		left outer join addresses a on t.addr_id = a.addr_id
 		left outer join courses c on t.tutor_id = c.tutor_id
 	</sql>
@@ -25,8 +25,7 @@
 		</where>
 	</sql>
 
-	<select id="selectTutorByTutorId" parameterType="Tutor"
-		resultMap="TutorResult">
+	<select id="selectTutorByTutorId" parameterType="Tutor" resultMap="TutorResult">
 		<include refid="selectSql" />
 		<include refid="whereSql" />
 	</select>

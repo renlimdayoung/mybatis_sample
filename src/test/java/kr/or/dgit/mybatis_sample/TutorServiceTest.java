@@ -1,7 +1,5 @@
 package kr.or.dgit.mybatis_sample;
 
-import static org.junit.Assert.fail;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -27,7 +25,7 @@ public class TutorServiceTest {
 	}
 
 	@Test
-	public void test1FindStudent() {
+	public void test1FindTutor() {
 		
 		Tutor findTutor = new Tutor();
 		findTutor.setTutorId(1);

@@ -2,6 +2,7 @@ package kr.or.dgit.mybatis_sample.dto;
 
 import java.util.Date;
 
+import kr.or.dgit.mybatis_sample.dao.Gender;
 import kr.or.dgit.mybatis_sample.dto.PhoneNumber;
 
 public class Student {
@@ -11,6 +12,7 @@ public class Student {
 	private PhoneNumber phone;
 	private Date dob;
 	private Address address;
+	private Gender gender;
 
 	
 	public Student() {
@@ -91,10 +93,18 @@ public class Student {
 		this.address = address;
 	}
 
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+	
+	public Gender getGender() {
+		return gender;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s, %s]", studId, name,
-				email, phone, dob, address);
+		return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, dob=%s, address=%s, gender=%s]", studId,
+				name, email, phone, dob, address, gender);
 	}
 
 	
