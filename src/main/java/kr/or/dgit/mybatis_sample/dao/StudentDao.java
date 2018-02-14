@@ -32,4 +32,7 @@ public interface StudentDao {
 	Student selectAllStudentByParam(String name, String email);
 	Student selectAllStudentByStudent(Student student);
 	Student selectAllStudentByMap(Map<String, String> map);
+	
+	//ResultSet 처리방식의 재정의
+	//Map<Integer, String> selectStudentForMap();
 }

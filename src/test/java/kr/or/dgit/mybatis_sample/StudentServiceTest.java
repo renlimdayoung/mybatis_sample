@@ -150,13 +150,15 @@ private static StudentService service;
 		Assert.assertNotNull(student);
 	}
 	
-	@Test
+	/*@Test
 	public void test12selectAllStudentByMap() {
 		Map<String,String> maps =  new HashMap<>();
 		maps.put("name", "Timothy");
 		maps.put("email", "timothy@gmail.com");
 		Student student = service.selectAllStudentByMap(maps);
 		Assert.assertNotNull(student);
-	}
+	}*/
+	
+	
 	
 }

@@ -147,4 +147,14 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 			return studentDao. selectAllStudentByMap(map);
 		}
 	}
+	
+
+/*	public Map<Integer, String> selectStudentForMap() {
+		log.debug("selectStudentByAllForHashMap()");
+		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			return studentDao.selectStudentForMap();
+		}
+	}*/
+	
 }
