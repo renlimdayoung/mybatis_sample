@@ -15,9 +15,6 @@
 	<select id="selectAddressByAll" resultMap="AddressResult">
 		<include refid="selectSql"/>
 	</select>
-	<select id="selectAddressByAll" resultMap="AddressResult">
-		<include refid="selectSql"/>
-	</select>
 	<select id="selectAddressByAllWithAPI" resultMap="AddressResult">
 		<include refid="selectSql"/>
 	</select>
