@@ -137,7 +137,7 @@ private static StudentService service;
 	
 	@Test
 	public void test10selectAllStudentByParam() {
-		Student student = StudentService.selectAllStudentByParam("Timothy", "timothy@gmail.com");
+		Student student = service.selectAllStudentByParam("Timothy", "timothy@gmail.com");
 		Assert.assertNotNull(student);
 	}
 
@@ -146,7 +146,7 @@ private static StudentService service;
 		Student std = new Student();
 		std.setName("Timothy");
 		std.setEmail("timothy@gmail.com");
-		Student student = StudentService.selectAllStudentByStudent(std);
+		Student student = service.selectAllStudentByStudent(std);
 		Assert.assertNotNull(student);
 	}
 	
@@ -155,7 +155,7 @@ private static StudentService service;
 		Map<String,String> maps =  new HashMap<>();
 		maps.put("name", "Timothy");
 		maps.put("email", "timothy@gmail.com");
-		Student student = StudentService.selectAllStudentByMap(maps);
+		Student student = service.selectAllStudentByMap(maps);
 		Assert.assertNotNull(student);
 	}
 	

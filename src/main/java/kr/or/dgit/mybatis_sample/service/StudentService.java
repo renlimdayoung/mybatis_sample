@@ -124,7 +124,7 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 		}
 	}
 	
-	public static Student selectAllStudentByParam(String name, String email) {
+	public Student selectAllStudentByParam(String name, String email) {
 		log.debug("selectAllStudentByParam()");
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
 			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
@@ -132,7 +132,7 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 		}
 	}
 	
-	public static Student  selectAllStudentByStudent(Student student) {
+	public Student  selectAllStudentByStudent(Student student) {
 		log.debug("selectAllStudentByStudent()");
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
 			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
@@ -140,7 +140,7 @@ private static final Log log = LogFactory.getLog(StudentService.class);
 		}
 	}
 	
-	public static Student  selectAllStudentByMap(Map<String, String> map) {
+	public Student  selectAllStudentByMap(Map<String, String> map) {
 		log.debug("selectAllStudentByMap()");
 		try (SqlSession sqlSession = MybatisSqlSessionFactory.openSession();) {
 			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
